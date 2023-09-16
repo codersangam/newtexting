@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:dating_app/authentications_bloc/cubits/signup_cubit.dart';
 import 'package:dating_app/constatns/app_router.dart';
 import 'package:dating_app/pages/tabs/mainpage.dart';
@@ -8,13 +6,12 @@ import 'package:dating_app/respositories/bloc/image_bloc.dart';
 import 'package:dating_app/respositories/bloc/swipebloc_bloc.dart';
 import 'package:dating_app/respositories/databerepository.dart';
 import 'package:dating_app/respositories/mainauth.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'pages/onboarding/onboardinng.dart';
 import 'respositories/baseusers.dart';
 
@@ -83,17 +80,19 @@ class _MyAppState extends State<MyApp> {
                 backgroundColor: Colors.transparent,
                 elevation: 0,
               ),
-              primaryColorLight: Colors.red, colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red).copyWith(secondary: Colors.red)),
-          home: OnboardingScreen(),
+              primaryColorLight: Colors.red,
+              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
+                  .copyWith(secondary: Colors.red)),
+          home: const OnboardingScreen(),
         ),
       ),
     );
   }
 }
 
-Future<auth.User> getcureentUser() async {
-  final auth.FirebaseAuth _auth = auth.FirebaseAuth.instance;
-  final auth.User user = _auth.currentUser!;
+Future<User> getcureentUser() async {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final User user = auth.currentUser!;
   return user;
 }
 
@@ -102,17 +101,14 @@ class AuthenticationWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<auth.User>(
+    return FutureBuilder<User>(
       future: getcureentUser(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return MainPage();
+          return const MainPage();
         }
-        return OnboardingScreen();
+        return const OnboardingScreen();
       },
     );
   }
 }
-
-
-
