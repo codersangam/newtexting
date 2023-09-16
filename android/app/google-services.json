@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "8892157330",
+    "project_id": "dating-quick-chat",
+    "storage_bucket": "dating-quick-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8892157330:android:017060a719d8073ad5854b",
+        "android_client_info": {
+          "package_name": "com.example.dating_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "8892157330-5lgqmlc7pri9njh6vdnhkfsvmtr0qjri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1MOxtzd6tnWsBpRcLjooVly5tor5Taeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "8892157330-5lgqmlc7pri9njh6vdnhkfsvmtr0qjri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
